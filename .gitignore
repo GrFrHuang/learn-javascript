@@ -1,0 +1,8 @@
+### ignore some config files
+
+.idea
+
+### ignore third lib
+node_modules/
+
+package-lock.json

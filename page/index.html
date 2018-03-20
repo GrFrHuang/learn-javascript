@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<html>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head>
+    <title>
+        my first html
+    </title>
+    <!--还是要链接，npm装的bootstrap只是提示-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<p id="pid" class="cls">GrFrHuang</p>
+<span><p>GrFrHuang</p></span>
+
+<div class="container">
+    <p class="col-md-6">'hello world'</p>
+    <p class="col-md-6">'hello huang'</p>
+
+    <br>
+    <button type="button" class="btn btn-success">成功</button>
+    <button type="button" class="btn btn-warning">提醒</button>
+    <br>
+    <em>nihao</em>
+    <pre>
+    <code style="font-family: monospace">console.log(typeof(func))</code>
+</pre>
+</div>
+
+<!--先导入.less-->
+<link rel="stylesheet/less" type="text/css" href="../static/main.less"/>
+<script>
+    less = {
+        env: "development",
+        async: false,
+        fileAsync: false,
+        poll: 1000,
+        functions: {},
+        dumpLineNumbers: "comments",
+        relativeUrls: false,
+        rootpath: ":/a.com/"
+    };
+</script>
+<!--后导入less.js-->
+<script src="http://cdn.bootcss.com/less.js/1.7.0/less.min.js"></script>
+<script type="text/javascript" src="../js/first.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<SCRIPT type="text/javascript">
+    var str = '这是 \n' + '多行 \n' + '字符串 \n';
+    var obj = {
+        name: 'huang',
+        word: 'nimei',
+        age: 22,
+        phone: 17358698928,
+        __habit: 'read',
+    }
+    var len = 2;
+    var _007 = 3;
+    if (len === 2) {
+        console.log(0 / 0);
+    } else {
+        console.log('I am smaller');
+    }
+    //    for (i = 0; i < 1000; i++) {
+    //        console.log(i);
+    //    }
+
+    window.onload = function () {
+        alert('Hello GrFrHuang')
+    }
+    console.log(str);
+
+    main(null);
+    //   一行声明多个变量
+    var y = 9, z = 10, l = 22;
+    console.log(y, z, l);
+    console.log(Iterable(y, z, l));
+
+    var abs = function (x) {
+        console.log('arguments: ', arguments[0], arguments.length);
+        if (x >= 0) {
+            return x;
+        } else {
+            return -x;
+        }
+    };
+
+    abs(9);
+
+    //判断基础类型,typeof 运算符把类型信息当作字符串返回
+    console.log(typeof(abs));
+
+    //常量
+    const PI = 3.14;
+    console.log(PI);
+
+    //    生成器
+    function* generatorTest(max) {
+        var
+            t,
+            a = 0,
+            b = 1,
+            n = 0;
+        while (n < max) {
+            yield a;
+            [a, b] = [b, a + b];
+            n++;
+        }
+        return;
+    }
+
+    var g = generatorTest(5);
+    console.log(g.next());
+    console.log(g.next());
+    console.log(g.next());
+    console.log(g.next());
+    console.log(g.next());
+    console.log(g.next());
+
+    console.log(abs.__proto__);
+    console.log(abs.prototype);
+
+    //    原型继承
+    var Student = {
+        name: 'Robot',
+        height: 1.2,
+        run: function () {
+            console.log('running...');
+        }
+    };
+
+    var Human = {
+        sex: 'man',
+        weight: '50kg',
+    };
+
+    abs.__proto__ = Student;
+    //    abs.__proto__ = Human;  //原型链覆盖
+    abs.__proto__.phone = '1823123176';
+    console.log(abs.height);
+    console.log(abs.phone);
+    console.log(abs.__proto__);
+
+    function Person() {
+        this.name = 'John';
+    }
+
+    var person = new Person();
+    Person.prototype.say = function () {
+        console.log('Hello,' + this.name);
+    };
+    Person.prototype.weight = '50kg';
+    person.say();//Hello,John
+    console.log(person.weight);
+
+    Object.getPrototypeOf(person).height = 150
+    console.log(Object.getPrototypeOf(person));
+
+</SCRIPT>
+</body>
+
+<style type="text/css">
+    /*媒体查询可以实现响应式布局*/
+</style>
+
+</html>

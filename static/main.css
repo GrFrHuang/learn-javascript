@@ -1,0 +1,13 @@
+@charset "UTF-8";
+body {
+  background-color: #807c6e;
+}
+div {
+  padding-top: 100px;
+  border-width: 25px;
+  border-bottom-color: #000000;
+}
+body #pid {
+  color: #ffffff;
+  margin-left: 100px;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js'></script>
+
+    <title>Title</title>
+</head>
+<body class="bodyClass">
+<div id="app">
+    <h2 class="classA classB">Welcome GrFrHuang</h2>
+
+    <p id="wel"><h4>Welcome GrFrHuang</h4></p>
+    <h1>{{message}}</h1>
+    <!--自定义组件-->
+    <message content="Hello GrFrHuang2"></message>
+</div>
+</body>
+<script type="text/javascript">
+    var msg = Vue.extend({
+        props: ['content'],
+        template: '<h3>{{content}}</h3>',
+    });
+    Vue.component('message', msg);
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello world, I am Vue.js'
+        }
+    });
+</script>
+
+<style type="text/css">
+    /*派生关系组合选择器中间有空格*/
+    .classA.classB {
+        color: #807c6e;
+        font-size: 20px;
+    }
+
+    #wel h4 {
+        color: blue;
+        font-size: 20px;
+    }
+
+    .bodyClass {
+        background-color: darkgrey;
+    }
+</style>
+
+</html>

@@ -1,0 +1,40 @@
+@charset "UTF-8";
+//it is annotation
+@top: 50px+50;
+@baseColor: #ffffff;
+body {
+  background-color: #fff8dc / 2;
+}
+
+div {
+  padding-top: @top;
+  border-width: @top / 4;
+  //#sp1(@top);
+  border-bottom-color: color("#000");
+}
+
+/*
+body {
+  #pid {
+    #sp(@top, @baseColor);
+  }
+
+}*/
+
+/*选择器*/
+#pid.cls {
+  color: red;
+}
+
+/*包含选择器*/
+span p {
+  color: blue;
+}
+
+//todo 子选择器
+
+#sp(@instance:50px,@color) {
+  color: @color+#008000;
+  margin-left: @instance;
+}
+
