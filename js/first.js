@@ -5,7 +5,7 @@
 'use strict';
 
 // var under = require('hello');
-var _ = require('underscore')._;
+// var _ = require('underscore')._;
 
 //捕捉异常/处理
 function main(s) {
@@ -133,9 +133,74 @@ function doAjax() {
         if (req.readyState === 4) {
             if (req.status === 200) {
                 alert(req.responseText);
-            }else {
+            } else {
                 alert(req.responseText);
             }
         }
     };
 }
+
+//函数返回一个函数
+function lazy_sum(arr) {
+    var sum = function () {
+        return arr.reduce(function (x, y) {
+            return x + y;
+        });
+    };
+    return sum;
+}
+
+var func = lazy_sum([1, 2, 3, 4, 5]);
+
+// console.log('return a function', func())
+
+
+//语法糖: 创建一个匿名函数并立刻执行的语法
+//闭包就是携带状态的函数，并且它的状态可以完全对外隐藏起来
+(function (x) {
+    return x * x;
+})(3);
+
+//利用闭包的特性创建一个计数器
+function create_counter(initial) {
+    var x = initial || 0;
+    return {
+        inc: function () {
+            x += 1;
+            return x;
+        }
+    }
+}
+
+var c1 = create_counter();
+c1.inc(); // 1
+c1.inc(); // 2
+c1.inc(); // 3
+
+//学习promise对象
+function testPromise(resolve, reject) {
+    var timeOut = Math.random() * 2;
+    console.log('set timeout to: ' + timeOut + ' seconds.');
+    setTimeout(function () {
+        if (timeOut < 1) {
+            console.log('call resolve()...');
+            //promise成功调用这个
+            resolve('200 OK');
+        }
+        else {
+            console.log('call reject()...');
+            //promise失败就调用这个方法
+            reject('timeout in ' + timeOut + ' seconds.');
+        }
+    }, timeOut * 1000);
+}
+
+let pro = new Promise(testPromise)
+
+pro.then(function (ret) {
+    console.log("Done: " + ret)
+}).catch(function (reason) {
+    console.log("Reject : " + reason)
+})
+
+
